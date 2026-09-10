@@ -17,7 +17,7 @@
     <div class="derma-topbar"><a class="derma-back" href="index.html#work">← Browse all projects</a><span class="eyebrow">CASE STUDY / 03</span></div>
     <section class="derma-intro"><p class="eyebrow" style="color:#e28fa9">AI SKIN & HAIR ANALYSIS WEBSITE · 2024</p><h1>Derma<em>Scope.</em></h1><p>A calm, educational interface that turns an intimidating AI health scan into a clearer next step.</p></section>
     <section class="derma-viewer" aria-label="DermaScope interactive desktop website mockup">
-      <div class="derma-phone-wrap"><button class="derma-arrow derma-prev" type="button" aria-label="Previous DermaScope page">←</button><div class="derma-phone"><div class="derma-notch"></div><div class="derma-screen"><img id="derma-screen-image" src="png-mockups/dermasope/page-001.jpg" alt="DermaScope website page 1"></div></div><button class="derma-arrow derma-next" type="button" aria-label="Next DermaScope page">→</button></div>
+      <div class="derma-phone-wrap"><button class="derma-arrow derma-prev" type="button" aria-label="Previous DermaScope page">←</button><div class="derma-phone"><div class="derma-notch"></div><div class="derma-screen"><img id="derma-screen-image" src="png-mockups/dermasope/page-001.png" alt="DermaScope website page 1"></div></div><button class="derma-arrow derma-next" type="button" aria-label="Next DermaScope page">→</button></div>
       <aside class="derma-details"><span class="page-count" id="derma-page-count">PAGE 01 / 04</span><h2 id="derma-page-title">A calmer first look.</h2><p id="derma-page-copy">The opening page establishes a reassuring tone before asking the user to interpret an AI result.</p><p class="derma-note">Use the arrows to browse each PDF page. Scroll inside the desktop frame to inspect the full-width website.</p></aside>
     </section>
   </main>
@@ -34,7 +34,7 @@
       ['A softer kind of expertise.','The final page keeps clinical credibility while leaving the user with a clear, human direction.']
     ];
     let currentPage = 1;
-    function renderPage(){const [title, copy] = pageNotes[currentPage - 1];image.src = `png-mockups/dermasope/page-${String(currentPage).padStart(3,'0')}.jpg`;image.alt = `DermaScope website page ${currentPage}`;pageCount.textContent = `PAGE ${String(currentPage).padStart(2,'0')} / ${totalPages}`;pageTitle.textContent = title;pageCopy.textContent = copy;}
+    function renderPage(){const [title, copy] = pageNotes[currentPage - 1];image.src = `png-mockups/dermasope/page-${String(currentPage).padStart(3,'0')}.png`;image.alt = `DermaScope website page ${currentPage}`;pageCount.textContent = `PAGE ${String(currentPage).padStart(2,'0')} / ${totalPages}`;pageTitle.textContent = title;pageCopy.textContent = copy;}
     document.querySelector('.derma-prev').addEventListener('click',()=>{currentPage = currentPage === 1 ? totalPages : currentPage - 1;renderPage()});
     document.querySelector('.derma-next').addEventListener('click',()=>{currentPage = currentPage === totalPages ? 1 : currentPage + 1;renderPage()});
   </script>
