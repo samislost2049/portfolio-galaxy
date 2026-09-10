@@ -51,7 +51,7 @@
     <section class="manav-viewer" aria-label="Manav Seva interactive mobile mockup">
       <div class="manav-phone-wrap">
         <button class="manav-arrow manav-prev" type="button" aria-label="Previous Manav Seva screen">←</button>
-        <div class="manav-phone"><div class="manav-phone-notch"></div><div class="manav-screen"><img id="manav-screen-image" src="png-mockups/Manav-Seva/page-001.jpg" alt="Manav Seva mobile screen page 1"></div></div>
+        <div class="manav-phone"><div class="manav-phone-notch"></div><div class="manav-screen"><img id="manav-screen-image" src="png-mockups/Manav-Seva/page-001.png" alt="Manav Seva mobile screen page 1"></div></div>
         <button class="manav-arrow manav-next" type="button" aria-label="Next Manav Seva screen">→</button>
       </div>
       <aside class="manav-details"><span class="page-count" id="manav-page-count">SCREEN 01 / 12</span><h2 id="manav-page-title">A visible path to impact.</h2><p id="manav-page-copy">The opening screen gives donors an immediate sense of where their support can move next.</p><p class="manav-note">Use the arrows to browse the complete PDF as a mobile product frame.</p></aside>
@@ -80,7 +80,7 @@
     let currentPage = 1;
     function renderPage(){
       const [title, copy] = pageNotes[currentPage - 1];
-      image.src = `png-mockups/Manav-Seva/page-${String(currentPage).padStart(3,'0')}.jpg`;
+      image.src = `png-mockups/Manav-Seva/page-${String(currentPage).padStart(3,'0')}.png`;
       image.alt = `Manav Seva mobile screen page ${currentPage}`;
       pageCount.textContent = `SCREEN ${String(currentPage).padStart(2,'0')} / ${totalPages}`;
       pageTitle.textContent = title;
