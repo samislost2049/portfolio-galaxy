@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sampurna Prusty — UI/UX designer crafting quiet, human-centred interfaces.">
+  <title>Sampurna Prusty — Galaxy Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=28">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nebula nebula-one" aria-hidden="true"></div>
+  <div class="nebula nebula-two" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" data-testid="site-header">
+    <a class="brand" href="#top" aria-label="SP portfolio home" data-testid="brand-link">SP<span>✦</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#about">About me</a><a href="#work">Selected work</a><a href="#contact">Contact me</a>
+    </nav>
+    <a class="header-availability" href="#contact"><i></i> Available for internships</a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell" data-testid="hero-section">
+      <div class="hero-coordinates">30.32°N · 78.03°E <span>UPES / DEHRADUN</span></div>
+      <div class="hero-grid-mark" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow reveal">UI/UX DESIGNER <span>·</span> 2026</p>
+        <h1 class="hero-title" aria-label="Sampurna Prusty"><span class="title-line"><span>Sampurna</span></span><span class="title-line italic"><span>Prusty.</span></span></h1>
+        <p class="hero-tagline reveal">UI/UX designer crafting quiet, human-centred interfaces — the kind that behave like they've always been there.</p>
+        <div class="hero-actions reveal"><a class="button button-primary" href="#work" data-testid="work-cta">Explore selected work <span>↘</span></a><a class="button button-ghost" href="resume.pdf" download data-testid="resume-link">Download Sampurna's résumé <span>↗</span></a></div>
+      </div>
+      <aside class="currently-card reveal" data-testid="currently-card"><span class="status-dot"></span><p class="eyebrow">CURRENTLY…</p><h2>Learning to make<br>the invisible felt.</h2><p>Third-year B.Tech CS (Full Stack)<br>at UPES Dehradun.</p><span class="card-orbit">◌</span></aside>
+      <div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="manifesto section-shell" id="about" data-testid="about-section">
+      <div class="section-intro"><p class="eyebrow">01 / A SMALL MANIFESTO</p><h2>Good design leaves<br><em>room to breathe.</em></h2></div>
+      <div class="manifesto-list">
+        <article class="manifesto-item reveal"><strong>01</strong><div><h3>The brief</h3><p>Start with the person, not the pixel. I look for the quiet friction hiding inside a loud problem, then make it easier to move through.</p></div></article>
+        <article class="manifesto-item reveal"><strong>02</strong><div><h3>The practice</h3><p>Structure first, feeling second, polish last. My process moves between systems thinking and the small visual detail that makes someone pause.</p></div></article>
+        <article class="manifesto-item reveal"><strong>03</strong><div><h3>The off-hours</h3><p>Mentoring, organising campus communities, and making space for culture to be visible. Design is also how we bring people closer.</p></div></article>
+      </div>
+    </section>
+
+    <section class="skills section-shell" data-testid="skills-section"><div class="section-intro"><p class="eyebrow">02 / THE TOOLKIT</p><h2>Curious by<br><em>default.</em></h2></div><div class="skill-groups"><div class="skill-group reveal"><h3>UI/UX design & technology</h3><div class="tags"><span>Figma</span><span>Adobe XD</span><span>Canva</span><span>Wireframing</span><span>Prototyping</span><span>Design thinking</span></div></div><div class="skill-group reveal"><h3>Creative strengths</h3><div class="tags"><span>Graphic design</span><span>Illustration</span><span>Visual storytelling</span></div></div><div class="skill-group reveal"><h3>Technical skills</h3><div class="tags"><span>Python</span><span>Java</span><span>C</span><span>Data analysis</span></div></div></div></section>
+
+    <div class="marquee-wrap" aria-label="Design principles"><div class="marquee"><span>Design with intention ✦</span><span>Kern like it matters ✦</span><span>Space is a material ✦</span><span>Interfaces are quiet ✦</span><span>Motion is punctuation ✦</span></div></div>
+
+    <section class="work section-shell" id="work" data-testid="work-section"><div class="section-intro work-heading"><p class="eyebrow">03 / SELECTED WORK</p><h2>Things made<br><em>with care.</em></h2><p>Product thinking, visual systems, and interfaces that know when to be quiet.</p></div><div class="project-grid" id="project-grid"></div></section>
+
+    <section class="experience section-shell" data-testid="experience-section"><div class="section-intro"><p class="eyebrow">04 / THE PATH SO FAR</p><h2>People, places,<br><em>perspective.</em></h2></div><div class="timeline"><div class="timeline-progress" id="timeline-progress"></div><article class="timeline-item reveal"><span class="timeline-dot"></span><time>2024 — PRESENT</time><h3>UI Designer Intern</h3><p>Humanity Founders</p></article><article class="timeline-item reveal"><span class="timeline-dot"></span><time>2023 — 2024</time><h3>Design Volunteer</h3><p>Udaar Foundation</p></article><article class="timeline-item reveal"><span class="timeline-dot"></span><time>SEP 2025 — PRESENT</time><h3>Senior Mentor</h3><p>Career Service Department, UPES</p></article><article class="timeline-item reveal"><span class="timeline-dot"></span><time>APR 2026 — PRESENT</time><h3>Lead Enabler</h3><p>Career Service Department, UPES</p></article><article class="timeline-item reveal"><span class="timeline-dot"></span><time>AUG 2025 — AUG 2026</time><h3>Design Lead</h3><p>UPES MUN Club</p></article><article class="timeline-item reveal"><span class="timeline-dot"></span><time>JAN 2025 — MAY 2026</time><h3>Head of Design</h3><p>UPES MUN Club</p></article><article class="timeline-item reveal"><span class="timeline-dot"></span><time>2024 — SEP 2025</time><h3>Changemaker</h3><p>Srijan 5.0 Internship</p></article></div></section>
+
+    <section class="contact section-shell" id="contact" data-testid="contact-section"><p class="eyebrow">05 / SAY HELLO</p><h2>Let's build something<br><em>quiet & considered.</em></h2><div class="contact-layout"><div class="contact-links"><a href="mailto:prusty.sampurna@gmail.com" data-testid="email-link"><span>EMAIL</span>prusty.sampurna@gmail.com <b>↗</b></a><a href="tel:+919971593220" data-testid="phone-link"><span>PHONE</span>+91 99715 93220 <b>↗</b></a><a href="https://linkedin.com/in/sampurna-prusty-873b46289" target="_blank" rel="noreferrer" data-testid="linkedin-link"><span>LINKEDIN</span>/sampurna-prusty-873b46289 <b>↗</b></a></div><form id="contact-form" data-testid="contact-form"><label>Your name<input name="name" required placeholder="What should I call you?"></label><label>Your email<input type="email" name="email" required placeholder="you@company.com"></label><label>Your message<textarea name="message" required rows="3" placeholder="Tell me about the good problem…"></textarea></label><button class="button button-primary" type="submit">Send a message <span>↗</span></button></form></div></section>
+  </main>
+  <footer class="footer"><span>© 2026 Sampurna Prusty</span><span>Designed with intention · Dehradun, India</span><a href="#top">Return to top ↑</a></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="project-dialog" data-testid="project-dialog"><button class="dialog-close" aria-label="Close project details">×</button><div id="dialog-content"></div></dialog>
+  <script src="script.js?v=30"></script>
+</body>
+</html>

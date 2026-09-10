@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DermaScope - Website Case Study</title>
+  <link rel="stylesheet" href="styles.css?v=24">
+  <style>
+    .derma-page{min-height:100vh;padding:28px 30px 80px;max-width:1180px;margin:auto}.derma-topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:80px}.derma-back{color:#e28fa9;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.derma-back:hover{text-decoration:underline}.derma-intro{max-width:760px;margin-bottom:50px}.derma-intro h1{font:500 clamp(58px,9vw,120px)/.9 'Playfair Display',serif;margin:14px 0 24px;color:#e9ddf4}.derma-intro h1 em{color:#e28fa9}.derma-intro p:last-child{max-width:590px;color:#aa9ab8;font-size:16px}.derma-viewer{display:grid;grid-template-columns:1fr 320px;align-items:center;gap:clamp(35px,9vw,130px);min-height:650px;border-top:1px solid rgba(224,200,255,.16);border-bottom:1px solid rgba(224,200,255,.16);padding:55px 0}.derma-phone-wrap{display:flex;justify-content:center;align-items:center;position:relative}.derma-phone{position:relative;width:min(430px,72vw);height:min(620px,78vh);padding:12px;border:3px solid #e28fa9;border-radius:38px;background:#321d2a;box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 48px rgba(226,143,169,.16);transform:rotate(1.5deg)}.derma-notch{position:absolute;z-index:2;top:8px;left:50%;width:86px;height:19px;border-radius:15px;background:#321d2a;transform:translateX(-50%)}.derma-screen{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;border-radius:27px;background:#f5dfe5;scrollbar-width:none;-ms-overflow-style:none}.derma-screen::-webkit-scrollbar{width:0;height:0;display:none}.derma-screen img{display:block;width:100%;height:auto;min-height:0;background:#f5dfe5}.derma-arrow{position:absolute;top:50%;width:52px;height:52px;border:1px solid #e28fa9;border-radius:50%;background:#7a2340;color:#f5dfe5;font-size:25px;line-height:1;cursor:pointer;transform:translateY(-50%);transition:background-color .25s,transform .25s}.derma-arrow:hover{background:#e28fa9;color:#321d2a;transform:translateY(-50%) scale(1.08)}.derma-prev{left:calc(50% - min(285px,39vw))}.derma-next{right:calc(50% - min(285px,39vw))}.derma-details{border-left:1px solid #e28fa9;padding-left:28px}.derma-details .page-count{color:#e28fa9;font-size:11px;letter-spacing:.18em}.derma-details h2{font:italic 500 clamp(32px,4vw,55px)/1 'Playfair Display',serif;margin:18px 0 24px;color:#e9ddf4}.derma-details p{color:#aa9ab8;font-size:14px;line-height:1.8;margin:0}.derma-note{margin-top:24px;padding-top:18px;border-top:1px solid rgba(224,200,255,.16);font-size:11px!important;letter-spacing:.03em}@media(max-width:760px){.derma-page{padding:20px 18px 55px}.derma-topbar{margin-bottom:55px}.derma-viewer{display:flex;flex-direction:column;gap:40px;padding:40px 0;min-height:0}.derma-phone{width:290px;height:450px;border-radius:32px}.derma-screen{border-radius:23px}.derma-arrow{width:42px;height:42px;font-size:20px}.derma-prev{left:calc(50% - 190px)}.derma-next{right:calc(50% - 190px)}.derma-details{width:100%;padding:22px 0 0;border-left:0;border-top:1px solid #e28fa9}}
+    .derma-viewer{grid-template-columns:minmax(0,1fr) minmax(250px,300px);gap:clamp(18px,2vw,28px)}.derma-phone{width:min(760px,100%);height:min(620px,78vh);padding:32px 12px 12px;border-radius:12px;background:#321d2a}.derma-notch{top:0;left:0;width:100%;height:31px;border-radius:8px 8px 0 0}.derma-notch:before{content:'dermascope / website';position:absolute;left:18px;top:8px;color:#d99aaa;font:9px 'Space Grotesk',sans-serif;letter-spacing:.08em}.derma-screen{border-radius:3px}.derma-prev{left:-26px}.derma-next{right:-26px}.derma-details{min-width:0;padding-left:14px}.derma-details h2{font-size:clamp(28px,3.4vw,48px);overflow-wrap:anywhere}@media(max-width:760px){.derma-phone{width:100%;height:450px;border-radius:10px}.derma-screen{border-radius:2px}.derma-prev{left:-8px}.derma-next{right:-8px}.derma-details{padding-left:0}}
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas><div class="nebula nebula-one" aria-hidden="true"></div><div class="nebula nebula-two" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header class="site-header"><a class="brand" href="index.html#work" aria-label="SP portfolio home">SP<span>✦</span></a><a class="header-availability" href="index.html#work">Return to selected work</a></header>
+  <main class="derma-page">
+    <div class="derma-topbar"><a class="derma-back" href="index.html#work">← Browse all projects</a><span class="eyebrow">CASE STUDY / 03</span></div>
+    <section class="derma-intro"><p class="eyebrow" style="color:#e28fa9">AI SKIN & HAIR ANALYSIS WEBSITE · 2024</p><h1>Derma<em>Scope.</em></h1><p>A calm, educational interface that turns an intimidating AI health scan into a clearer next step.</p></section>
+    <section class="derma-viewer" aria-label="DermaScope interactive desktop website mockup">
+      <div class="derma-phone-wrap"><button class="derma-arrow derma-prev" type="button" aria-label="Previous DermaScope page">←</button><div class="derma-phone"><div class="derma-notch"></div><div class="derma-screen"><img id="derma-screen-image" src="png-mockups/dermasope/page-001.jpg" alt="DermaScope website page 1"></div></div><button class="derma-arrow derma-next" type="button" aria-label="Next DermaScope page">→</button></div>
+      <aside class="derma-details"><span class="page-count" id="derma-page-count">PAGE 01 / 04</span><h2 id="derma-page-title">A calmer first look.</h2><p id="derma-page-copy">The opening page establishes a reassuring tone before asking the user to interpret an AI result.</p><p class="derma-note">Use the arrows to browse each PDF page. Scroll inside the desktop frame to inspect the full-width website.</p></aside>
+    </section>
+  </main>
+  <script>
+    const totalPages = 4;
+    const image = document.querySelector('#derma-screen-image');
+    const pageCount = document.querySelector('#derma-page-count');
+    const pageTitle = document.querySelector('#derma-page-title');
+    const pageCopy = document.querySelector('#derma-page-copy');
+    const pageNotes = [
+      ['A calmer first look.','The opening page establishes a reassuring tone before asking the user to interpret an AI result.'],
+      ['Make the scan understandable.','Information is organised into a clear narrative so a technical result feels easier to act on.'],
+      ['From result to routine.','The page turns analysis into practical education, giving users a useful next step without alarm.'],
+      ['A softer kind of expertise.','The final page keeps clinical credibility while leaving the user with a clear, human direction.']
+    ];
+    let currentPage = 1;
+    function renderPage(){const [title, copy] = pageNotes[currentPage - 1];image.src = `png-mockups/dermasope/page-${String(currentPage).padStart(3,'0')}.jpg`;image.alt = `DermaScope website page ${currentPage}`;pageCount.textContent = `PAGE ${String(currentPage).padStart(2,'0')} / ${totalPages}`;pageTitle.textContent = title;pageCopy.textContent = copy;}
+    document.querySelector('.derma-prev').addEventListener('click',()=>{currentPage = currentPage === 1 ? totalPages : currentPage - 1;renderPage()});
+    document.querySelector('.derma-next').addEventListener('click',()=>{currentPage = currentPage === totalPages ? 1 : currentPage + 1;renderPage()});
+  </script>
+</body>
+</html>
