@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0a12; --surface:rgba(20,14,34,.72); --ink:#e9ddf4; --muted:#aa9ab8; --line:rgba(224,200,255,.16); --purple:#9d4edd; --magenta:#d946ef; --blue:#3b82f6; }
+    * { box-sizing:border-box; margin:0; }
+    body { background:var(--bg); color:var(--ink); font:15px/1.6 'Space Grotesk',sans-serif; min-height:100vh; }
+
+    .shell { max-width:900px; margin:0 auto; padding:48px 24px; }
+
+    /* login */
+    #login-view { max-width:360px; margin:18vh auto 0; }
+    #login-view h1 { font:500 28px/1 'Space Grotesk',sans-serif; margin-bottom:6px; }
+    #login-view p { color:var(--muted); font-size:12px; margin-bottom:28px; }
+    #login-form { display:flex; flex-direction:column; gap:18px; }
+    #login-form input { background:transparent; border:0; border-bottom:1px solid var(--line); color:var(--ink); padding:12px 0; outline:none; font:inherit; font-size:14px; }
+    #login-form input:focus { border-color:var(--magenta); }
+    #login-form input::placeholder { color:#655570; }
+    #login-form button { margin-top:8px; background:var(--purple); color:#fff; border:0; border-radius:99px; padding:13px 20px; cursor:pointer; font:inherit; font-size:14px; transition:background .3s; }
+    #login-form button:hover { background:var(--magenta); }
+    .login-error { color:#e8798f; font-size:12px; display:none; }
+
+    /* dashboard */
+    #dash-view { display:none; }
+    .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:40px; }
+    .header h1 { font:600 20px/1 'Space Grotesk',sans-serif; }
+    .header h1 span { color:var(--magenta); margin-right:10px; }
+    .btn-ghost { background:transparent; border:1px solid var(--line); border-radius:99px; color:var(--muted); padding:8px 16px; cursor:pointer; font:inherit; font-size:12px; transition:border-color .3s, color .3s; }
+    .btn-ghost:hover { border-color:var(--magenta); color:var(--ink); }
+
+    .stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:48px; }
+    .stat-card { border:1px solid var(--line); border-radius:8px; padding:22px 20px; background:var(--surface); }
+    .stat-label { font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .stat-value { font:500 38px/1 'Space Grotesk',sans-serif; color:var(--ink); }
+    .stat-card:nth-child(2) .stat-value { color:var(--purple); }
+    .stat-card:nth-child(3) .stat-value { color:var(--magenta); }
+
+    .section { margin-bottom:48px; }
+    .section-head { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+
+    .chart { display:flex; align-items:flex-end; gap:6px; height:120px; padding:0 2px; }
+    .chart-bar { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; }
+    .chart-bar span.top { font-size:10px; color:var(--muted); min-height:14px; }
+    .chart-bar span.bar { width:100%; background:linear-gradient(var(--magenta),var(--blue)); border-radius:3px 3px 0 0; transition:height .4s; min-height:2px; }
+    .chart-bar span.day { font-size:9px; color:var(--muted); letter-spacing:.06em; }
+
+    .msg-list { list-style:none; }
+    .msg-item { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; border:1px solid var(--line); border-radius:8px; padding:18px 20px; background:var(--surface); margin-bottom:10px; }
+    .msg-body { flex:1; min-width:0; }
+    .msg-meta { font-size:11px; color:var(--muted); margin-bottom:6px; }
+    .msg-meta b { color:var(--ink); font-weight:500; text-transform:uppercase; letter-spacing:.08em; }
+    .msg-text { font-size:13px; color:#cbb7d8; word-wrap:break-word; }
+    .btn-delete { background:transparent; border:1px solid rgba(232,121,143,.3); color:#e8798f; border-radius:6px; padding:6px 10px; cursor:pointer; font:inherit; font-size:11px; white-space:nowrap; transition:border-color .3s; }
+    .btn-delete:hover { border-color:#e8798f; }
+
+    .empty { color:var(--muted); font-size:13px; text-align:center; padding:24px; }
+
+    @media (max-width:600px) { .stat-grid { grid-template-columns:1fr; } .chart { height:90px; } }
+  </style>
+</head>
+<body>
+  <div id="login-view" class="shell">
+    <h1>Galaxy Admin</h1>
+    <p>Log in to view form submissions and visitor stats.</p>
+    <form id="login-form">
+      <input name="email" type="email" placeholder="you@example.com" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button type="submit">Log in</button>
+    </form>
+    <p class="login-error" id="login-error"></p>
+  </div>
+
+  <div id="dash-view" class="shell">
+    <div class="header">
+      <h1><span>✦</span> Galaxy Admin</h1>
+      <button class="btn-ghost" id="logout-btn">Log out</button>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total messages</div>
+        <div class="stat-value" id="stat-total">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total visits</div>
+        <div class="stat-value" id="stat-visits">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Visits today</div>
+        <div class="stat-value" id="stat-today">—</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">Visits — last 14 days</div>
+      <div class="chart" id="chart"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">Recent messages</div>
+      <ul class="msg-list" id="msg-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    const token = localStorage.getItem('galaxy_admin_token');
+    const loginView = document.getElementById('login-view');
+    const dashView  = document.getElementById('dash-view');
+    const loginForm = document.getElementById('login-form');
+    const loginError = document.getElementById('login-error');
+    const logoutBtn = document.getElementById('logout-btn');
+    const chart = document.getElementById('chart');
+    const msgList = document.getElementById('msg-list');
+
+    function showDash() { loginView.style.display = 'none'; dashView.style.display = 'block'; loadStats(); }
+    function showLogin() { loginView.style.display = 'block'; dashView.style.display = 'none'; localStorage.removeItem('galaxy_admin_token'); }
+
+    if (token) { showDash(); } else { showLogin(); }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginError.style.display = 'none';
+      const data = Object.fromEntries(new FormData(loginForm));
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.error || 'Login failed');
+        localStorage.setItem('galaxy_admin_token', body.token);
+        showDash();
+      } catch (err) {
+        loginError.textContent = err.message;
+        loginError.style.display = 'block';
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => { showLogin(); });
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/admin/stats', {
+          headers: { Authorization: 'Bearer ' + localStorage.getItem('galaxy_admin_token') },
+        });
+        if (res.status === 401) { showLogin(); return; }
+        const d = await res.json();
+        document.getElementById('stat-total').textContent = d.totalMessages;
+        document.getElementById('stat-visits').textContent = d.totalVisits;
+        document.getElementById('stat-today').textContent = d.todayVisits;
+
+        const max = Math.max(...d.last14.map(x => x.visits), 1);
+        chart.innerHTML = d.last14.map(x => {
+          const h = Math.max(2, Math.round((x.visits / max) * 100));
+          const dayLabel = x.day.slice(5);
+          return `<div class="chart-bar"><span class="top">${x.visits || ''}</span><span class="bar" style="height:${h}%"></span><span class="day">${dayLabel}</span></div>`;
+        }).join('');
+
+        if (d.recent.length === 0) { msgList.innerHTML = '<li class="empty">No messages yet.</li>'; return; }
+        msgList.innerHTML = d.recent.map(m => `
+          <li class="msg-item">
+            <div class="msg-body">
+              <div class="msg-meta"><b>${esc(m.name)}</b> &lt;${esc(m.email)}&gt; · ${new Date(m.created_at).toLocaleString()}</div>
+              <div class="msg-text">${esc(m.message)}</div>
+            </div>
+            <button class="btn-delete" data-id="${m.id}">Delete</button>
+          </li>
+        `).join('');
+
+        msgList.querySelectorAll('.btn-delete').forEach(btn => btn.addEventListener('click', async () => {
+          if (!confirm('Delete this message?')) return;
+          await fetch('/api/admin/messages/' + btn.dataset.id, {
+            method: 'DELETE',
+            headers: { Authorization: 'Bearer ' + localStorage.getItem('galaxy_admin_token') },
+          });
+          loadStats();
+        }));
+      } catch (err) {
+        console.error('Failed to load stats:', err);
+      }
+    }
+
+    function esc(s) { const el = document.createElement('span'); el.textContent = s; return el.innerHTML; }
+  </script>
+</body>
+</html>
