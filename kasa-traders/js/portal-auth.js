@@ -1,5 +1,5 @@
 (function () {
-  const SUPABASE_URL = 'https://zvjj6cphulqgfnuvznzjx.supabase.co';
+  const SUPABASE_URL = 'https://zvjjzcphuqlgfnuvnzzx.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp2amp6Y3BodXFsZ2ZudXZuenp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI4MjQ3MjcsImV4cCI6MjEwODQwMDcyN30.cMATc4F0rGoac6zqlV2YD5RHQpYxBgmZBNEufRmUqyw';
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const path = window.location.pathname;

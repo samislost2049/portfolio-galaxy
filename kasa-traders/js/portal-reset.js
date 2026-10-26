@@ -1,5 +1,5 @@
 (function () {
-  const SUPABASE_URL = 'https://zvjj6cphulqgfnuvznzjx.supabase.co';
+  const SUPABASE_URL = 'https://zvjjzcphuqlgfnuvnzzx.supabase.co';
   const SUPABASE_ANON_KEY = '******';
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const form = document.getElementById('resetPasswordForm');
