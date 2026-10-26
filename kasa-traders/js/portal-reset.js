@@ -11,13 +11,34 @@
   };
 
   async function checkSession() {
+    let settled = false;
+    let timeoutId;
+    const subscription = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'PASSWORD_RECOVERY' && session) {
+        settled = true;
+        window.clearTimeout(timeoutId);
+        subscription.data.subscription.unsubscribe();
+        setMessage('Enter and confirm your new password.');
+      }
+    });
+
     const { data, error } = await supabase.auth.getSession();
-    if (error || !data.session) {
-      setMessage('This reset link is invalid or has expired. Request a new one from the team login page.', true);
-      form.querySelector('button').disabled = true;
+    if (data.session) {
+      settled = true;
+      window.clearTimeout(timeoutId);
+      subscription.data.subscription.unsubscribe();
+      setMessage('Enter and confirm your new password.');
       return;
     }
-    setMessage('Enter and confirm your new password.');
+
+    timeoutId = window.setTimeout(() => {
+      if (settled) return;
+      subscription.data.subscription.unsubscribe();
+      setMessage(error
+        ? 'Unable to verify this reset link. Please request a new one.'
+        : 'This reset link is invalid or has expired. Request a new one from the team login page.', true);
+      form.querySelector('button').disabled = true;
+    }, 3000);
   }
 
   form.addEventListener('submit', async (event) => {
@@ -44,8 +65,5 @@
     }, 1200);
   });
 
-  supabase.auth.onAuthStateChange((event) => {
-    if (event === 'PASSWORD_RECOVERY') setMessage('Enter and confirm your new password.');
-  });
   checkSession();
 })();
