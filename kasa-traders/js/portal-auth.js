@@ -5,7 +5,7 @@
   const path = window.location.pathname;
   const isLogin = path.endsWith('employee-login.html');
   const message = document.getElementById('loginMessage');
-  const recoveryRedirect = 'https://kasa-traders.vercel.app/employee-reset-password.html';
+  const recoveryRedirect = 'https://kasa-traders.vercel.app/kasa-traders/employee-reset-password.html';
 
   const setMessage = (text, error) => {
     if (!message) return;
@@ -40,7 +40,7 @@
       setMessage('Sending a secure magic link...');
       const { error } = await supabase.auth.signInWithOtp({
         email,
-        options: { emailRedirectTo: 'https://kasa-traders.vercel.app/employee-portal.html' }
+        options: { emailRedirectTo: 'https://kasa-traders.vercel.app/kasa-traders/employee-portal.html' }
       });
       magicLinkButton.disabled = false;
       if (error) {
