@@ -6,7 +6,7 @@
   <title>ManavSeva - Mobile Case Study</title>
   <link rel="stylesheet" href="styles.css?v=24">
   <style>
-    .manav-page{min-height:100vh;padding:28px 30px 80px;max-width:1440px;margin:auto}
+    .manav-page{min-height:100vh;padding:28px 30px 80px;max-width:none;margin:auto}
     .manav-topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:80px}
     .manav-back{color:#72b85d;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
     .manav-back:hover{text-decoration:underline}
@@ -30,11 +30,11 @@
     .manav-details p{color:#aa9ab8;font-size:14px;line-height:1.8;margin:0}
     .manav-note{margin-top:24px;padding-top:18px;border-top:1px solid rgba(224,200,255,.16);font-size:11px!important;letter-spacing:.03em}
     .manav-gallery{display:grid;gap:28px;border-top:1px solid rgba(224,200,255,.16);padding-top:40px}
-    .manav-gallery-row{display:grid;grid-template-columns:minmax(420px,1fr) minmax(340px,.8fr);gap:clamp(28px,4vw,64px);align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
-    .manav-gallery-row:nth-child(even){grid-template-columns:minmax(340px,.8fr) minmax(420px,1fr)}
+    .manav-gallery-row{display:grid;grid-template-columns:minmax(380px,460px) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
+    .manav-gallery-row:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(380px,460px)}
     .manav-gallery-row:nth-child(even) .manav-phone-frame{grid-column:2;grid-row:1}
     .manav-gallery-row:nth-child(even) .manav-gallery-copy{grid-column:1;grid-row:1}
-    .manav-phone-frame{width:min(460px,100%);height:min(720px,78vh);padding:12px;border:3px solid #72b85d;border-radius:42px;background:#16251d;box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 48px rgba(114,184,93,.16);margin:auto;transform:rotate(-1deg)}
+    .manav-phone-frame{width:min(360px,100%);height:min(720px,78vh);padding:12px;border:3px solid #72b85d;border-radius:42px;background:#16251d;box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 48px rgba(114,184,93,.16);margin:auto;transform:rotate(-1deg)}
     .manav-phone-frame:nth-child(even){transform:rotate(1deg)}
     .manav-phone-notch{height:20px;width:92px;border-radius:15px;background:#16251d;margin:-6px auto 4px;position:relative;z-index:1}
     .manav-phone-screen{height:calc(100% - 18px);overflow-y:auto;overflow-x:hidden;border-radius:30px;background:#f4ede0;scrollbar-width:thin}
