@@ -29,7 +29,14 @@
     .manav-details h2{font:italic 500 clamp(32px,4vw,55px)/1 'Playfair Display',serif;margin:18px 0 24px;color:#e9ddf4}
     .manav-details p{color:#aa9ab8;font-size:14px;line-height:1.8;margin:0}
     .manav-note{margin-top:24px;padding-top:18px;border-top:1px solid rgba(224,200,255,.16);font-size:11px!important;letter-spacing:.03em}
-    @media(max-width:760px){.manav-page{padding:20px 18px 55px}.manav-topbar{margin-bottom:55px}.manav-viewer{display:flex;flex-direction:column;gap:40px;padding:40px 0;min-height:0}.manav-phone{width:230px;height:450px;border-radius:32px}.manav-screen{border-radius:23px}.manav-arrow{width:42px;height:42px;font-size:20px}.manav-prev{left:calc(50% - 160px)}.manav-next{right:calc(50% - 160px)}.manav-details{width:100%;padding:22px 0 0;border-left:0;border-top:1px solid #72b85d}}
+    .manav-gallery{display:grid;gap:28px;border-top:1px solid rgba(224,200,255,.16);padding-top:40px}
+    .manav-gallery-row{display:grid;grid-template-columns:minmax(260px,1.25fr) minmax(220px,.75fr);gap:42px;align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
+    .manav-gallery-row img{display:block;width:100%;max-height:620px;object-fit:contain;background:#f4ede0}
+    .manav-gallery-copy{border-left:1px solid #72b85d;padding-left:24px}
+    .manav-gallery-copy .page-count{color:#72b85d;font-size:11px;letter-spacing:.18em}
+    .manav-gallery-copy h2{font:italic 500 clamp(28px,4vw,52px)/1 'Playfair Display',serif;color:#e9ddf4;margin:16px 0 22px}
+    .manav-gallery-copy p:last-child{color:#aa9ab8;font-size:14px;line-height:1.8}
+    @media(max-width:760px){.manav-page{padding:20px 18px 55px}.manav-topbar{margin-bottom:55px}.manav-viewer{display:block;min-height:0;padding:40px 0}.manav-gallery-row{grid-template-columns:1fr;gap:22px}.manav-gallery-copy{border-left:0;border-top:1px solid #72b85d;padding:22px 0 0}}
   </style>
 </head>
 <body>
@@ -48,21 +55,12 @@
       <h1>Manav<em>Seva.</em></h1>
       <p>A calm mobile system for donors, NGOs, volunteers, and beneficiaries to see giving become visible, trackable impact.</p>
     </section>
-    <section class="manav-viewer" aria-label="Manav Seva interactive mobile mockup">
-      <div class="manav-phone-wrap">
-        <button class="manav-arrow manav-prev" type="button" aria-label="Previous Manav Seva screen">←</button>
-        <div class="manav-phone"><div class="manav-phone-notch"></div><div class="manav-screen"><img id="manav-screen-image" src="png-mockups/Manav-Seva/page-001.png" alt="Manav Seva mobile screen page 1"></div></div>
-        <button class="manav-arrow manav-next" type="button" aria-label="Next Manav Seva screen">→</button>
-      </div>
-      <aside class="manav-details"><span class="page-count" id="manav-page-count">SCREEN 01 / 12</span><h2 id="manav-page-title">A visible path to impact.</h2><p id="manav-page-copy">The opening screen gives donors an immediate sense of where their support can move next.</p><p class="manav-note">Use the arrows to browse the complete PDF as a mobile product frame.</p></aside>
+    <section class="manav-viewer" aria-label="Manav Seva mobile screens">
+      <div class="manav-gallery" id="manav-gallery"></div>
     </section>
   </main>
   <script>
     const totalPages = 12;
-    const image = document.querySelector('#manav-screen-image');
-    const pageCount = document.querySelector('#manav-page-count');
-    const pageTitle = document.querySelector('#manav-page-title');
-    const pageCopy = document.querySelector('#manav-page-copy');
     const pageNotes = [
       ['A visible path to impact.','The opening screen gives donors an immediate sense of where their support can move next.'],
       ['Trust, at a glance.','Clear status cues help people understand the health and progress of a contribution.'],
@@ -77,17 +75,7 @@
       ['The next good action.','The interface closes each journey with a clear, calm next step.'],
       ['A system with room to grow.','The final screen reflects a modular product language built for future impact.']
     ];
-    let currentPage = 1;
-    function renderPage(){
-      const [title, copy] = pageNotes[currentPage - 1];
-      image.src = `png-mockups/Manav-Seva/page-${String(currentPage).padStart(3,'0')}.png`;
-      image.alt = `Manav Seva mobile screen page ${currentPage}`;
-      pageCount.textContent = `SCREEN ${String(currentPage).padStart(2,'0')} / ${totalPages}`;
-      pageTitle.textContent = title;
-      pageCopy.textContent = copy;
-    }
-    document.querySelector('.manav-prev').addEventListener('click',()=>{currentPage = currentPage === 1 ? totalPages : currentPage - 1;renderPage()});
-    document.querySelector('.manav-next').addEventListener('click',()=>{currentPage = currentPage === totalPages ? 1 : currentPage + 1;renderPage()});
+    document.querySelector('#manav-gallery').innerHTML = pageNotes.map(([title, copy], index) => `<article class="manav-gallery-row"><img loading="lazy" src="png-mockups/Manav-Seva/page-${String(index + 1).padStart(3,'0')}.png" alt="Manav Seva screen ${index + 1}"><div class="manav-gallery-copy"><span class="page-count">SCREEN ${String(index + 1).padStart(2,'0')} / ${totalPages}</span><h2>${title}</h2><p>${copy}</p></div></article>`).join('');
   </script>
 </body>
 </html>
