@@ -6,7 +6,7 @@
   <title>ManavSeva - Mobile Case Study</title>
   <link rel="stylesheet" href="styles.css?v=24">
   <style>
-    .manav-page{min-height:100vh;padding:28px 30px 80px;max-width:1180px;margin:auto}
+    .manav-page{min-height:100vh;padding:28px 30px 80px;max-width:1440px;margin:auto}
     .manav-topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:80px}
     .manav-back{color:#72b85d;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
     .manav-back:hover{text-decoration:underline}
@@ -30,11 +30,11 @@
     .manav-details p{color:#aa9ab8;font-size:14px;line-height:1.8;margin:0}
     .manav-note{margin-top:24px;padding-top:18px;border-top:1px solid rgba(224,200,255,.16);font-size:11px!important;letter-spacing:.03em}
     .manav-gallery{display:grid;gap:28px;border-top:1px solid rgba(224,200,255,.16);padding-top:40px}
-    .manav-gallery-row{display:grid;grid-template-columns:minmax(260px,1.25fr) minmax(220px,.75fr);gap:42px;align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
-    .manav-gallery-row:nth-child(even){grid-template-columns:minmax(220px,.75fr) minmax(260px,1.25fr)}
+    .manav-gallery-row{display:grid;grid-template-columns:minmax(360px,1.35fr) minmax(300px,.65fr);gap:clamp(42px,7vw,110px);align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
+    .manav-gallery-row:nth-child(even){grid-template-columns:minmax(300px,.65fr) minmax(360px,1.35fr)}
     .manav-gallery-row:nth-child(even) img{grid-column:2;grid-row:1}
     .manav-gallery-row:nth-child(even) .manav-gallery-copy{grid-column:1;grid-row:1}
-    .manav-gallery-row img{display:block;width:100%;max-height:620px;object-fit:contain;background:#f4ede0}
+    .manav-gallery-row img{display:block;width:100%;max-height:min(820px,78vh);object-fit:contain;background:#f4ede0}
     .manav-gallery-copy{border-left:1px solid #72b85d;padding-left:24px}
     .manav-gallery-copy .page-count{color:#72b85d;font-size:11px;letter-spacing:.18em}
     .manav-gallery-copy h2{font:italic 500 clamp(28px,4vw,52px)/1 'Playfair Display',serif;color:#e9ddf4;margin:16px 0 22px}
