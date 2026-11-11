@@ -10,6 +10,7 @@ const projects = [
 const grid = document.querySelector('#project-grid');
 const dialog = document.querySelector('#project-dialog');
 const dialogContent = document.querySelector('#dialog-content');
+grid.querySelector('a[href="humanity-founders.html"]')?.closest('.project-card')?.remove();
 grid.innerHTML = '';
 projects.forEach((project, index) => { const card = document.createElement('article'); const link = project.name === 'ManavSeva' ? 'manav-seva.html' : `${project.name.toLowerCase().replace(/\s+/g,'-')}.html`; card.className=`project-card reveal${project.name === 'ManavSeva' ? ' manav-card' : ''}`; card.style.setProperty('--accent', project.accent); card.dataset.testid=`project-card-${index}`; card.innerHTML=`<span class="project-index">0${index+1}</span><div class="swatches">${project.swatches.map(color=>`<i style="background:${color}"></i>`).join('')}</div><h3>${project.name}</h3><p class="project-type">${project.type}</p><p>${project.role}</p><a class="project-expand" href="${link}">View ${project.name} case study ↗</a>`; card.addEventListener('click',event=>{if(event.target.closest('a'))return;openProject(project)}); grid.append(card); });
 function openProject(project){
