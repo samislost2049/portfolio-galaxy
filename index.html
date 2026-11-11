@@ -12,13 +12,19 @@
   <style>
     .project-preview{display:none}
     .project-grid > .project-card:first-child{display:none}
-    #dialog-content .screen-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:30px}
-    #dialog-content .screen-gallery img{display:block;width:100%;height:auto;max-height:620px;object-fit:contain;background:#f4efe3;border:1px solid rgba(255,255,255,.16)}
+    #dialog-content .screen-gallery{display:grid;gap:24px;max-height:calc(100vh - 250px);overflow-y:auto;margin-top:30px;padding:4px 18px 24px 4px;scroll-behavior:smooth}
+    #dialog-content .screen-gallery-row{display:grid;grid-template-columns:minmax(220px,1.35fr) minmax(180px,.65fr);gap:28px;align-items:center;padding:0 0 24px;border-bottom:1px solid rgba(255,255,255,.16)}
+    #dialog-content .screen-gallery img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:#f4efe3;border:1px solid rgba(255,255,255,.16)}
+    #dialog-content .screen-gallery-copy{padding:10px 0}
+    #dialog-content .screen-gallery-copy .frame-number{color:var(--accent);font-size:12px;letter-spacing:.14em}
+    #dialog-content .screen-gallery-copy h3{margin:10px 0;font-size:clamp(22px,3vw,34px)}
+    #dialog-content .screen-gallery-copy p{color:rgba(255,255,255,.72);line-height:1.7}
     #dialog-content .asset-page-row .frame-visual{height:auto!important;min-height:0!important}
     #dialog-content .asset-page-row .desktop-shell{height:auto!important;min-height:0!important}
     #dialog-content .asset-page-row .mockup-image{height:auto!important;min-height:0!important;max-height:70vh;object-fit:contain}
     #dialog-content .campaign-flipbook .flipbook-shell{height:auto!important;min-height:0!important}
     #dialog-content .campaign-flipbook .mockup-image{height:auto!important;min-height:0!important;max-height:70vh;object-fit:contain}
+    @media(max-width:700px){#dialog-content .screen-gallery-row{grid-template-columns:1fr;gap:14px}}
     .project-card .project-preview+h3{margin-top:0!important}
     .project-card .project-expand{z-index:2}
   </style>
