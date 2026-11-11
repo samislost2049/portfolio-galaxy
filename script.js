@@ -10,6 +10,7 @@ const projects = [
 const grid = document.querySelector('#project-grid');
 const dialog = document.querySelector('#project-dialog');
 const dialogContent = document.querySelector('#dialog-content');
+grid.innerHTML = '';
 projects.forEach((project, index) => { const card = document.createElement('article'); const isManavSeva = project.name === 'ManavSeva'; const isDermaScope = project.name === 'DermaScope'; card.className=`project-card reveal${isManavSeva ? ' manav-card' : ''}`; card.style.setProperty('--accent', project.accent); card.dataset.testid=`project-card-${index}`; card.innerHTML=`<span class="project-index">0${index+1} / ${project.year}</span><div class="swatches">${project.swatches.map(color=>`<i style="background:${color}"></i>`).join('')}</div><h3>${project.name}</h3><p class="project-type">${project.type}</p><p>${project.role}</p><span class="project-expand">${isManavSeva || isDermaScope ? `View ${project.name} case study ↗` : '↗'}</span>`; card.addEventListener('click',()=>{if(isManavSeva){window.open('manav-seva.html','_blank');return}if(isDermaScope){window.open('dermascope.html','_blank');return}openProject(project)}); grid.append(card); });
 function openProject(project){
   dialog.classList.add('case-dialog');
