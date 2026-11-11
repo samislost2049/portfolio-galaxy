@@ -30,16 +30,20 @@
     .manav-details p{color:#aa9ab8;font-size:14px;line-height:1.8;margin:0}
     .manav-note{margin-top:24px;padding-top:18px;border-top:1px solid rgba(224,200,255,.16);font-size:11px!important;letter-spacing:.03em}
     .manav-gallery{display:grid;gap:28px;border-top:1px solid rgba(224,200,255,.16);padding-top:40px}
-    .manav-gallery-row{display:grid;grid-template-columns:minmax(360px,1.35fr) minmax(300px,.65fr);gap:clamp(42px,7vw,110px);align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
-    .manav-gallery-row:nth-child(even){grid-template-columns:minmax(300px,.65fr) minmax(360px,1.35fr)}
-    .manav-gallery-row:nth-child(even) img{grid-column:2;grid-row:1}
+    .manav-gallery-row{display:grid;grid-template-columns:minmax(300px,1.1fr) minmax(300px,.9fr);gap:clamp(42px,7vw,110px);align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(224,200,255,.16)}
+    .manav-gallery-row:nth-child(even){grid-template-columns:minmax(300px,.9fr) minmax(300px,1.1fr)}
+    .manav-gallery-row:nth-child(even) .manav-phone-frame{grid-column:2;grid-row:1}
     .manav-gallery-row:nth-child(even) .manav-gallery-copy{grid-column:1;grid-row:1}
-    .manav-gallery-row img{display:block;width:100%;max-height:min(820px,78vh);object-fit:contain;background:#f4ede0}
+    .manav-phone-frame{width:min(360px,100%);height:min(720px,78vh);padding:12px;border:3px solid #72b85d;border-radius:42px;background:#16251d;box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 48px rgba(114,184,93,.16);margin:auto;transform:rotate(-1deg)}
+    .manav-phone-frame:nth-child(even){transform:rotate(1deg)}
+    .manav-phone-notch{height:20px;width:92px;border-radius:15px;background:#16251d;margin:-6px auto 4px;position:relative;z-index:1}
+    .manav-phone-screen{height:calc(100% - 18px);overflow-y:auto;overflow-x:hidden;border-radius:30px;background:#f4ede0;scrollbar-width:thin}
+    .manav-phone-screen img{display:block;width:100%;height:auto;min-height:100%;object-fit:initial;background:#f4ede0}
     .manav-gallery-copy{border-left:1px solid #72b85d;padding-left:24px}
     .manav-gallery-copy .page-count{color:#72b85d;font-size:11px;letter-spacing:.18em}
     .manav-gallery-copy h2{font:italic 500 clamp(28px,4vw,52px)/1 'Playfair Display',serif;color:#e9ddf4;margin:16px 0 22px}
     .manav-gallery-copy p:last-child{color:#aa9ab8;font-size:14px;line-height:1.8}
-    @media(max-width:760px){.manav-page{padding:20px 18px 55px}.manav-topbar{margin-bottom:55px}.manav-viewer{display:block;min-height:0;padding:40px 0}.manav-gallery-row{grid-template-columns:1fr;gap:22px}.manav-gallery-copy{border-left:0;border-top:1px solid #72b85d;padding:22px 0 0}}
+    @media(max-width:760px){.manav-page{padding:20px 18px 55px}.manav-topbar{margin-bottom:55px}.manav-viewer{display:block;min-height:0;padding:40px 0}.manav-gallery-row,.manav-gallery-row:nth-child(even){grid-template-columns:1fr;gap:22px}.manav-gallery-row:nth-child(even) .manav-phone-frame,.manav-gallery-row:nth-child(even) .manav-gallery-copy{grid-column:auto;grid-row:auto}.manav-gallery-copy{border-left:0;border-top:1px solid #72b85d;padding:22px 0 0}.manav-phone-frame{height:min(620px,78vh)}}
   </style>
 </head>
 <body>
@@ -78,7 +82,7 @@
       ['The next good action.','The interface closes each journey with a clear, calm next step.'],
       ['A system with room to grow.','The final screen reflects a modular product language built for future impact.']
     ];
-    document.querySelector('#manav-gallery').innerHTML = pageNotes.map(([title, copy], index) => `<article class="manav-gallery-row"><img loading="lazy" src="png-mockups/Manav-Seva/page-${String(index + 1).padStart(3,'0')}.png" alt="Manav Seva screen ${index + 1}"><div class="manav-gallery-copy"><span class="page-count">SCREEN ${String(index + 1).padStart(2,'0')} / ${totalPages}</span><h2>${title}</h2><p>${copy}</p></div></article>`).join('');
+    document.querySelector('#manav-gallery').innerHTML = pageNotes.map(([title, copy], index) => `<article class="manav-gallery-row"><div class="manav-phone-frame"><div class="manav-phone-notch"></div><div class="manav-phone-screen"><img loading="lazy" src="png-mockups/Manav-Seva/page-${String(index + 1).padStart(3,'0')}.png" alt="Manav Seva screen ${index + 1}"></div></div><div class="manav-gallery-copy"><span class="page-count">SCREEN ${String(index + 1).padStart(2,'0')} / ${totalPages}</span><h2>${title}</h2><p>${copy}</p><p class="manav-note">Scroll inside the phone to view the full screen.</p></div></article>`).join('');
   </script>
 </body>
 </html>
